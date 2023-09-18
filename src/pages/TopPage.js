@@ -5,13 +5,15 @@ import Results from '../components/Results.js';
 
 const TopPage = (props) => {
     return (
-      <div className="TopPage">
-        <Header />
-        <Title />
-        <Selector countriesJson = { props.countriesJson }
-                  getCountryData = { props.getCountryData }
-                  setCountry = { props.setCountry } />
-        <Results  countryData = { props.countryData } />
+      <div className="top-page-container">
+        <div>
+          <Header />
+          <Title />
+          <Selector countriesJson = { props.countriesJson }
+                    getCountryData = { props.getCountryData }
+                    setCountry = { props.setCountry } />
+          <Results  countryData = { props.countryData } />
+        </div>
       </div>
     );
   }

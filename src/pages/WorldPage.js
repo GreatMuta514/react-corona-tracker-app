@@ -4,7 +4,7 @@ import Card from '../components/Card.js';
 
 const WorldPage = (props) => {
     return (
-      <div>
+      <div className="world-page-container">
         <Header />
         <Title />
         <Card allCountriesData={props.allCountriesData} />
