@@ -3,7 +3,12 @@ import Title from "../components/Title.js";
 import Selector from "../components/Selector.js";
 import Results from "../components/Results.js";
 
-const TopPage = ({countriesJson, getCountryData, setCountry, countryData}) => {
+const TopPage = ({
+  countriesJson,
+  getCountryData,
+  setCountry,
+  countryData,
+}) => {
   return (
     <div className="top-page-container">
       <div>

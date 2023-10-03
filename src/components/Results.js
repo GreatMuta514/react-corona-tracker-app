@@ -1,5 +1,6 @@
 const Results = (props) => {
-  const {date, newConfiremed, totalConfiremed, newRecovered, totalRecovered} = props.countryData;
+  const { date, newConfiremed, totalConfiremed, newRecovered, totalRecovered } =
+    props.countryData;
   return (
     <div>
       <p>日付：{date.slice(0, 10)}</p>

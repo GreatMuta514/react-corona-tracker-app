@@ -1,7 +1,7 @@
 import { useState } from "react";
 import countriesJson from "../countries.json";
 
-const Selector = ({countriesJson, getCountryData, setCountry}) => {
+const Selector = ({ countriesJson, getCountryData, setCountry }) => {
   return (
     <div>
       <select onChange={(e) => setCountry(e.target.value)}>

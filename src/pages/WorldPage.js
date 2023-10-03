@@ -2,7 +2,7 @@ import Header from "../components/Header.js";
 import Title from "../components/Title.js";
 import Card from "../components/Card.js";
 
-const WorldPage = ({allCountriesData}) => {
+const WorldPage = ({ allCountriesData }) => {
   return (
     <div className="world-page-container">
       <Header />
