@@ -7,7 +7,7 @@ import WorldPage from "./pages/WorldPage.js";
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState("japan");
   const [countryData, setCountryData] = useState({
     date: "",
     newConfiremed: "",
@@ -17,30 +17,33 @@ function App() {
   });
   const [allCountriesData, setAllCountriesData] = useState([]);
 
-  const getCountryData = () => {
-    setLoading(true);
-    fetch(
-      `https://monotein-books.vercel.app/api/corona-tracker/country/${country}`,
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setCountryData({
-          date: data[data.length - 1].Date,
-          newConfiremed:
-            data[data.length - 1].Confirmed - data[data.length - 2].Confirmed,
-          totalConfiremed: data[data.length - 1].Confirmed,
-          newRecovered:
-            data[data.length - 1].Recovered - data[data.length - 2].Recovered,
-          totalRecovered: data[data.length - 1].Recovered,
-        });
-        setLoading(false);
-      })
-      .catch((err) =>
-        alert(
-          "エラーが発生しました。ページをリロードしてもう一度試してください。",
-        ),
-      );
-  };
+  useEffect(() => {
+    const getCountryData = () => {
+      setLoading(true);
+      fetch(
+        `https://monotein-books.vercel.app/api/corona-tracker/country/${country}`,
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setCountryData({
+            date: data[data.length - 1].Date,
+            newConfiremed:
+              data[data.length - 1].Confirmed - data[data.length - 2].Confirmed,
+            totalConfiremed: data[data.length - 1].Confirmed,
+            newRecovered:
+              data[data.length - 1].Recovered - data[data.length - 2].Recovered,
+            totalRecovered: data[data.length - 1].Recovered,
+          });
+          setLoading(false);
+        })
+        .catch((err) =>
+          alert(
+            "エラーが発生しました。ページをリロードしてもう一度試してください。",
+          ),
+        );
+    };
+    getCountryData();
+  }, [country]);
 
   useEffect(() => {
     fetch("https://monotein-books.vercel.app/api/corona-tracker/summary")
@@ -62,7 +65,6 @@ function App() {
             <TopPage
               countriesJson={countriesJson}
               setCountry={setCountry}
-              getCountryData={getCountryData}
               countryData={countryData}
               loading={loading}
             />
