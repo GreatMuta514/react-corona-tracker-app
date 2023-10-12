@@ -6,14 +6,22 @@ import TopPage from "./pages/TopPage.js";
 import WorldPage from "./pages/WorldPage.js";
 
 function App() {
-  const [loading, setLoading] = useState(false);
-  const [country, setCountry] = useState("japan");
-  const [countryData, setCountryData] = useState({
+  type countryData = {
+    date: string,
+    newConfiremed: number,
+    totalConfiremed: number,
+    newRecovered: number,
+    totalRecovered: number,
+  }
+
+  const [loading, setLoading] = useState<boolean>(false);
+  const [country, setCountry] = useState<String>("japan");
+  const [countryData, setCountryData] = useState<countryData>({
     date: "",
-    newConfiremed: "",
-    totalConfiremed: "",
-    newRecovered: "",
-    totalRecovered: "",
+    newConfiremed: 0,
+    totalConfiremed: 0,
+    newRecovered: 0,
+    totalRecovered: 0,
   });
   const [allCountriesData, setAllCountriesData] = useState([]);
 

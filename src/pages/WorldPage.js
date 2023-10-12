@@ -1,6 +1,6 @@
-import Header from "../components/Header.js";
-import Title from "../components/Title.js";
-import Card from "../components/Card.js";
+import Header from "../components/Header";
+import Title from "../components/Title";
+import Card from "../components/Card";
 
 const WorldPage = ({ allCountriesData }) => {
   return (
